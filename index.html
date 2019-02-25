@@ -11,10 +11,22 @@
       <h1>{{ greet('Evening') }}</h1>
       <p>{{ name }}</p>
       <p>Job: {{ job }}</p>
+
       <h1>Data Binding</h1>
       <a v-bind:href="website">The Net Ninja</a>
       <input type="text" v-bind:value="name">
       <input type="text" v-bind:value="job">
+      <p v-html="websiteTag">The website</p>
+
+      <h1>Events</h1>
+      <button v-on:click.once="addAge(3)">Add 3 years to age</button>
+      <button v-on:click="subtractAge(10)">Subtract 10 year from age</button>
+      <button v-on:dblclick="addAge(1)">Add 1 year to age</button>
+      <button @dblclick="subtractAge(1)">Subtract 1 year from age</button>
+      <button v-on:click.stop="addAge(1)" v-on:dblclick.stop.prevent="addAge(10)">Add 1 or 10 year(s) to age</button>
+      <p>My age is {{ age }}</p>
+
+      <div id="canvas" @mousemove="updateXY">{{ x }}, {{ y }}</div>
     </div>
     <script src="app.js" type="text/javascript"></script>
 </body>
